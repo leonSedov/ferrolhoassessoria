@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Mariana Ferrolho Advocacia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e Variáveis de Cor */
+        :root {
+            --preto: #000000;
+            --dourado: #D4AF37;
+            --branco: #FFFFFF;
+            --cinza-claro: #F8F8F8;
+            --cinza-escuro: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
+        
+        body {
+            background-color: var(--branco);
+            color: var(--preto);
+            line-height: 1.8;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Cabeçalho Responsivo com Hamburguer */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 25px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--preto);
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: var(--preto);
+            margin-top: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Menu Desktop */
+        .desktop-nav {
+            display: flex;
+        }
+        
+        .desktop-nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .desktop-nav ul li {
+            margin-left: 40px;
+            position: relative;
+        }
+        
+        .desktop-nav ul li a {
+            text-decoration: none;
+            color: var(--preto);
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .desktop-nav ul li a:hover {
+            color: var(--dourado);
+        }
+        
+        .desktop-nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: var(--dourado);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .desktop-nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .contact-btn {
+            background-color: transparent;
+            color: var(--preto);
+            padding: 12px 30px;
+            border: 1px solid var(--dourado);
+            border-radius: 0;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--dourado);
+            transition: all 0.4s;
+            z-index: -1;
+        }
+        
+        .contact-btn:hover {
+            color: var(--branco);
+        }
+        
+        .contact-btn:hover::before {
+            left: 0;
+        }
+        
+        /* Menu Mobile */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--preto);
+            cursor: pointer;
+            z-index: 1100;
+        }
+        
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: var(--branco);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1050;
+            padding: 100px 30px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-nav.active {
+            right: 0;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 25px;
+        }
+        
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--preto);
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .mobile-nav ul li a:hover {
+            color: var(--dourado);
+        }
+        
+        .mobile-nav .contact-btn {
+            margin-top: 30px;
+            align-self: center;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section Blog */
+        .blog-hero {
+            height: 40vh;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            margin-top: 80px;
+            color: var(--branco);
+            text-align: center;
+        }
+        
+        .blog-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .blog-hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .blog-hero p {
+            font-size: 18px;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Conteúdo do Blog */
+        .blog-content {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--preto);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: var(--dourado);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+        
+        .blog-card {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        
+        .blog-info {
+            padding: 25px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background-color: var(--dourado);
+            color: var(--preto);
+            padding: 5px 15px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .blog-info h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--preto);
+        }
+        
+        .blog-info p {
+            color: var(--cinza-escuro);
+            font-weight: 300;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--cinza-escuro);
+            font-size: 14px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 20px;
+        }
+        
+        .blog-date {
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-date i, .blog-read i {
+            margin-right: 5px;
+            color: var(--dourado);
+        }
+        
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--dourado);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .blog-link i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .blog-link:hover {
+            color: var(--preto);
+        }
+        
+        .blog-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Paginação */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 80px;
+        }
+        
+        .page-numbers {
+            display: flex;
+            list-style: none;
+        }
+        
+        .page-numbers li {
+            margin: 0 5px;
+        }
+        
+        .page-numbers a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--preto);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .page-numbers a:hover, .page-numbers a.active {
+            background-color: var(--dourado);
+            border-color: var(--dourado);
+            color: var(--preto);
+        }
+        
+        /* Barra Lateral */
+        .blog-sidebar {
+            margin-top: 60px;
+        }
+        
+        .sidebar-widget {
+            margin-bottom: 50px;
+        }
+        
+        .widget-title {
+            font-size: 22px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--dourado);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .search-form {
+            position: relative;
+        }
+        
+        .search-form input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .search-form button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 50px;
+            background-color: var(--dourado);
+            color: var(--preto);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-form button:hover {
+            background-color: var(--preto);
+            color: var(--dourado);
+        }
+        
+        .categories-list {
+            list-style: none;
+        }
+        
+        .categories-list li {
+            margin-bottom: 15px;
+        }
+        
+        .categories-list a {
+            color: var(--cinza-escuro);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .categories-list a:hover {
+            color: var(--dourado);
+        }
+        
+        .categories-list span {
+            background-color: var(--cinza-claro);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .recent-posts {
+            list-style: none;
+        }
+        
+        .recent-post {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .recent-post-image {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+        }
+        
+        .recent-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .recent-post-content h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+        
+        .recent-post-content a {
+            color: var(--preto);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .recent-post-content a:hover {
+            color: var(--dourado);
+        }
+        
+        .recent-post-content span {
+            font-size: 13px;
+            color: var(--cinza-escuro);
+        }
+        
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tags-cloud a {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            font-size: 13px;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        .tags-cloud a:hover {
+            background-color: var(--dourado);
+            color: var(--preto);
+        }
+        
+        /* Layout do Blog */
+        .blog-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+        }
+        
+        /* Rodapé Elegante */
+        footer {
+            background-color: var(--preto);
+            color: var(--branco);
+            padding: 100px 0 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: var(--dourado);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 1px;
+            background: var(--dourado);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col p, .footer-col a {
+            color: #CCCCCC;
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 300;
+            font-size: 15px;
+        }
+        
+        .footer-col a:hover {
+            color: var(--dourado);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--branco);
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--dourado);
+            border-color: var(--dourado);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999999;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .blog-hero h1 {
+                font-size: 54px;
+            }
+            
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-sidebar {
+                margin-top: 80px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .blog-hero {
+                min-height: 350px;
+            }
+            
+            .blog-hero h1 {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+            }
+            
+            .logo span {
+                font-size: 12px;
+            }
+            
+            .blog-hero h1 {
+                font-size: 42px;
+            }
+            
+            .blog-hero p {
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .blog-hero h1 {
+                font-size: 36px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho Responsivo -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>MARIANA FERROLHO</h1>
+                <span>ADVOCACIA</span>
+            </div>
+            
+            <!-- Menu Desktop -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="areas.html">Áreas de Atuação</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contato.html">Contatos</a></li>
+                </ul>
+            </nav>
+            
+            <button class="contact-btn">Contato</button>
+            
+            <!-- Botão Hamburguer Mobile -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div class="overlay" id="overlay"></div>
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="areas.html">Áreas de Atuação</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contato.html">Contatos</a></li>
+            </ul>
+            <button class="contact-btn">Contato</button>
+        </nav>
+    </header>
+    
+    <!-- Hero Section Blog -->
+    <section class="blog-hero">
+        <div class="container blog-hero-content">
+            <h1>Blog Jurídico</h1>
+            <p>Artigos, notícias e insights sobre as principais questões do Direito brasileiro e internacional.</p>
+        </div>
+    </section>
+    
+    <!-- Conteúdo do Blog -->
+    <section class="blog-content">
+        <div class="container blog-container">
+            <main>
+                <div class="section-title">
+                    <h2>Últimos Artigos</h2>
+                </div>
+                
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1587202372775-e229f1725a0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Reforma Trabalhista">
+                        </div>
+                        <div class="blog-info">
+                            <span class="blog-category">Direito Trabalhista</span>
+                            <h3>Mudanças na Reforma Trabalhista: O que você precisa saber</h3>
+                            <p>Análise detalhada das novas alterações na legislação trabalhista e seus impactos nas relações empregatícias.</p>
+                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 15 Maio 2023</span>
+                                <span class="blog-read"><i class="far fa-clock"></i> 5 min</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="LGPD">
+                        </div>
+                        <div class="blog-info">
+                            <span class="blog-category">Direito Digital</span>
+                            <h3>LGPD: Como se adequar às novas exigências de proteção de dados</h3>
+                            <p>Guia prático para empresas implementarem os requisitos da Lei Geral de Proteção de Dados em seus negócios.</p>
+                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 10 Maio 2023</span>
+                                <span class="blog-read"><i class="far fa-clock"></i> 8 min</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Divórcio">
+                        </div>
+                        <div class="blog-info">
+                            <span class="blog-category">Direito de Família</span>
+                            <h3>Divórcio Consensual: Passo a passo para um processo tranquilo</h3>
+                            <p>Entenda os requisitos, documentos necessários e como tornar o processo de divórcio mais harmonioso para ambas as partes.</p>
+                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 5 Maio 2023</span>
+                                <span class="blog-read"><i class="far fa-clock"></i> 6 min</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Contratos">
+                        </div>
+                        <div class="blog-info">
+                            <span class="blog-category">Direito Civil</span>
+                            <h3>Cláusulas Essenciais em Contratos Imobiliários</h3>
+                            <p>Quais são as cláusulas que não podem faltar em um contrato de compra e venda de imóvel para proteger seus interesses.</p>
+                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 28 Abril 2023</span>
+                                <span class="blog-read"><i class="far fa-clock"></i> 7 min</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Startups">
+                        </div>
+                        <div class="blog-info">
+                            <span class="blog-category">Direito Empresarial</span>
+                            <h3>Aspectos Jurídicos para Startups: Do início ao scale-up</h3>
+                            <p>Os principais cuidados legais que empreendedores devem ter em cada fase do crescimento de suas startups.</p>
+                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 20 Abril 2023</span>
+                                <span class="blog-read"><i class="far fa-clock"></i> 10 min</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Herança">
+                        </div>
+                        <div class="blog-info">
+                            <span class="blog-category">Direito de Família</span>
+                            <h3>Planejamento Sucessório: Como proteger seu patrimônio</h3>
+                            <p>Estratégias jurídicas para organizar a sucessão patrimonial e evitar conflitos familiares.</p>
+                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 15 Abril 2023</span>
+                                <span class="blog-read"><i class="far fa-clock"></i> 9 min</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="pagination">
+                    <ul class="page-numbers">
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </main>
+            
+            <aside class="blog-sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Buscar</h3>
+                    <form class="search-form">
+                        <input type="text" placeholder="Pesquisar...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Categorias</h3>
+                    <ul class="categories-list">
+                        <li><a href="#">Direito Civil <span>12</span></a></li>
+                        <li><a href="#">Direito Empresarial <span>8</span></a></li>
+                        <li><a href="#">Direito de Família <span>15</span></a></li>
+                        <li><a href="#">Direito Trabalhista <span>7</span></a></li>
+                        <li><a href="#">Direito Digital <span>5</span></a></li>
+                        <li><a href="#">Direito Imobiliário <span>9</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Posts Recentes</h3>
+                    <ul class="recent-posts">
+                        <li class="recent-post">
+                            <div class="recent-post-image">
+                                <img src="https://images.unsplash.com/photo-1587202372775-e229f1725a0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Post recente">
+                            </div>
+                            <div class="recent-post-content">
+                                <h4><a href="#">Mudanças na Reforma Trabalhista: O que você precisa saber</a></h4>
+                                <span>15 Maio 2023</span>
+                            </div>
+                        </li>
+                        <li class="recent-post">
+                            <div class="recent-post-image">
+                                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Post recente">
+                            </div>
+                            <div class="recent-post-content">
+                                <h4><a href="#">LGPD: Como se adequar às novas exigências</a></h4>
+                                <span>10 Maio 2023</span>
+                            </div>
+                        </li>
+                        <li class="recent-post">
+                            <div class="recent-post-image">
+                                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Post recente">
+                            </div>
+                            <div class="recent-post-content">
+                                <h4><a href="#">Divórcio Consensual: Passo a passo</a></h4>
+                                <span>5 Maio 2023</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Tags</h3>
+                    <div class="tags-cloud">
+                        <a href="#">Contratos</a>
+                        <a href="#">LGPD</a>
+                        <a href="#">Divórcio</a>
+                        <a href="#">Startups</a>
+                        <a href="#">Herança</a>
+                        <a href="#">Trabalhista</a>
+                        <a href="#">Empresas</a>
+                        <a href="#">Imóveis</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+    
+    <!-- Rodapé Elegante -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Mariana Ferrolho</h3>
+                    <p>Excelência jurídica com atendimento personalizado e soluções estratégicas para seus problemas legais.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navegação</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Áreas de Atuação</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contato</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo/SP</p>
+                    <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@marianaferrolho.com.br</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Horário de Atendimento</h3>
+                    <p>Segunda a Sexta: 9h às 18h</p>
+                    <p>Sábado: 9h às 12h</p>
+                    <p>Plantão 24h para clientes</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Mariana Ferrolho Advocacia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <script>
+        // Menu Hamburguer
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('overlay');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+            
+            // Altera o ícone do botão
+            if (mobileNav.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        overlay.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+        
+        // Fecha o menu ao clicar em um link
+        const navLinks = document.querySelectorAll('.mobile-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Efeito de scroll no header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '25px 0';
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Animação suave ao rolar
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.area-card, .step-card, .section-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Inicializa elementos com opacidade 0 para animação
+        window.onload = function() {
+            const elementsToAnimate = document.querySelectorAll('.area-card, .step-card, .section-title');
+            elementsToAnimate.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.6s ease-out';
+            });
+            
+            // Mostra elementos com delay
+            setTimeout(() => {
+                document.querySelector('.areas-hero-content').style.opacity = '1';
+                document.querySelector('.areas-hero-content').style.transform = 'translateY(0)';
+            }, 300);
+            
+            // Configura o observer para animação
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Executa uma vez ao carregar
+        };
+    </script>
+</body>
+</html>

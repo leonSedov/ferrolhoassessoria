@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariana Ferrolho Advocacia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e Variáveis de Cor */
+        :root {
+            --preto: #000000;
+            --dourado: #D4AF37;
+            --branco: #FFFFFF;
+            --cinza-claro: #F8F8F8;
+            --cinza-escuro: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
+        
+        body {
+            background-color: var(--branco);
+            color: var(--preto);
+            line-height: 1.8;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Cabeçalho Minimalista */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 25px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--preto);
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: var(--preto);
+            margin-top: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 40px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--preto);
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--dourado);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: var(--dourado);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .contact-btn {
+            background-color: transparent;
+            color: var(--preto);
+            padding: 12px 30px;
+            border: 1px solid var(--dourado);
+            border-radius: 0;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--dourado);
+            transition: all 0.4s;
+            z-index: -1;
+        }
+        
+        .contact-btn:hover {
+            color: var(--branco);
+        }
+        
+        .contact-btn:hover::before {
+            left: 0;
+        }
+        
+        /* Hero Section Luxuosa */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--cinza-claro);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+        
+        .hero h2 {
+            font-size: 64px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            color: var(--preto);
+        }
+        
+        .hero h2 span {
+            color: var(--dourado);
+            font-style: italic;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: var(--cinza-escuro);
+            font-weight: 300;
+            max-width: 500px;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: var(--dourado);
+            color: var(--preto);
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid var(--dourado);
+        }
+        
+        .hero-btn:hover {
+            background-color: transparent;
+            color: var(--preto);
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+        }
+        
+        /* Destaques Elegantes */
+        .features {
+            padding: 120px 0;
+            background-color: var(--branco);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--preto);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: var(--dourado);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--dourado);
+            margin-bottom: 30px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--preto);
+        }
+        
+        .feature-card p {
+            color: var(--cinza-escuro);
+            font-weight: 300;
+            font-size: 16px;
+        }
+        
+        /* Áreas de Atuação Sofisticadas */
+        .practice-areas {
+            padding: 120px 0;
+            background-color: var(--cinza-claro);
+        }
+        
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .area-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .area-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .area-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .area-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--branco);
+            transition: all 0.4s;
+        }
+        
+        .area-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.4s;
+        }
+        
+        .area-card p {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s;
+            font-weight: 300;
+            font-size: 15px;
+        }
+        
+        .area-card:hover h3 {
+            transform: translateY(0);
+        }
+        
+        .area-card:hover p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Rodapé Elegante */
+        footer {
+            background-color: var(--preto);
+            color: var(--branco);
+            padding: 100px 0 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: var(--dourado);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 1px;
+            background: var(--dourado);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col p, .footer-col a {
+            color: #CCCCCC;
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 300;
+            font-size: 15px;
+        }
+        
+        .footer-col a:hover {
+            color: var(--dourado);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--branco);
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--dourado);
+            border-color: var(--dourado);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999999;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .hero h2 {
+                font-size: 54px;
+            }
+            
+            .hero-image {
+                width: 45%;
+                opacity: 0.8;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero {
+                min-height: 700px;
+            }
+            
+            .hero h2 {
+                font-size: 48px;
+            }
+            
+            .hero-image {
+                width: 50%;
+                opacity: 0.6;
+            }
+            
+            .feature-card {
+                padding: 0 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 20px;
+            }
+            
+            .hero {
+                text-align: center;
+                min-height: 600px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+            
+            .hero h2 {
+                font-size: 42px;
+            }
+            
+            .hero p {
+                margin: 0 auto 40px;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .features, .practice-areas {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 10px 15px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho Minimalista -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>MARIANA FERROLHO</h1>
+                <span>ADVOCACIA</span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="areas.html">Áreas de Atuação</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contato.html">Contatos</a></li>
+                </ul>
+            </nav>
+            
+            <button class="contact-btn">Contato</button>
+        </div>
+    </header>
+    
+    <!-- Hero Section Luxuosa -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Excelência Jurídica <span>Personalizada</span></h2>
+                <p>Advocacia especializada com abordagem estratégica e atendimento exclusivo para cada cliente.</p>
+                <a href="#" class="hero-btn">Agendar Consultoria</a>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </section>
+    
+    <!-- Destaques Elegantes -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossa Abordagem</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Atendimento Exclusivo</h3>
+                    <p>Cada cliente recebe atenção personalizada e soluções jurídicas adaptadas às suas necessidades específicas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>Estratégia Jurídica</h3>
+                    <p>Planejamento cuidadoso de cada caso para alcançar os melhores resultados com eficiência.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Transparência</h3>
+                    <p>Relação de confiança com comunicação clara em todas as etapas do processo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Áreas de Atuação Sofisticadas -->
+    <section class="practice-areas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Áreas de Atuação</h2>
+            </div>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Direito Civil">
+                    <div class="area-overlay">
+                        <h3>Direito Civil</h3>
+                        <p>Contratos, responsabilidade civil, direito das coisas e obrigações.</p>
+                    </div>
+                </div>
+                
+                <div class="area-card">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Direito Empresarial">
+                    <div class="area-overlay">
+                        <h3>Direito Empresarial</h3>
+                        <p>Assessoria jurídica completa para empresas de todos os portes.</p>
+                    </div>
+                </div>
+                
+                <div class="area-card">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Direito de Família">
+                    <div class="area-overlay">
+                        <h3>Direito de Família</h3>
+                        <p>Divórcios, inventários, guarda de menores e planejamento sucessório.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rodapé Elegante -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Mariana Ferrolho</h3>
+                    <p>Excelência jurídica com atendimento personalizado e soluções estratégicas para seus problemas legais.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navegação</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Áreas de Atuação</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contato</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo/SP</p>
+                    <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@marianaferrolho.com.br</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Horário de Atendimento</h3>
+                    <p>Segunda a Sexta: 9h às 18h</p>
+                    <p>Sábado: 9h às 12h</p>
+                    <p>Plantão 24h para clientes</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Mariana Ferrolho Advocacia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <script>
+        // Menu Hamburguer
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('overlay');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+            
+            // Altera o ícone do botão
+            if (mobileNav.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        overlay.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+        
+        // Fecha o menu ao clicar em um link
+        const navLinks = document.querySelectorAll('.mobile-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Efeito de scroll no header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '25px 0';
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Animação suave ao rolar
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.area-card, .step-card, .section-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Inicializa elementos com opacidade 0 para animação
+        window.onload = function() {
+            const elementsToAnimate = document.querySelectorAll('.area-card, .step-card, .section-title');
+            elementsToAnimate.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.6s ease-out';
+            });
+            
+            // Mostra elementos com delay
+            setTimeout(() => {
+                document.querySelector('.areas-hero-content').style.opacity = '1';
+                document.querySelector('.areas-hero-content').style.transform = 'translateY(0)';
+            }, 300);
+            
+            // Configura o observer para animação
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Executa uma vez ao carregar
+        };
+    </script>
+</body>
+</html>
