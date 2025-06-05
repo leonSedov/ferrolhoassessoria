@@ -750,15 +750,50 @@
                 gap: 40px;
             }
         }
+        .header-logo-left {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            z-index: 1200;
+        }
+        .header-logo-left img {
+            height: 130px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+        /* Ajuste para responsividade */
+        @media (max-width: 768px) {
+            .header-logo-left {
+                height: 80px;
+                left: 15px;
+            }
+            .header-logo-left img {
+                height: 80px;
+            }
+        }
+        .container.header-container {
+            position: relative;
+        }
+        /* Remova a logo do canto direito se não for mais usar */
+        .header-logo-right {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <!-- Cabeçalho Responsivo -->
     <header>
         <div class="container header-container">
+            <!-- Logo no canto superior esquerdo -->
+            <div class="header-logo-left">
+                <img src="imag logos/LOGO_sem-fundo.png" alt="Logo Escritório" />
+            </div>
             <div class="logo">
-                <h1>MARIANA FERROLHO</h1>
-                <span>ADVOCACIA</span>
             </div>
             
             <!-- Menu Desktop -->
@@ -988,7 +1023,6 @@
             </aside>
         </div>
     </section>
-    
     <!-- Rodapé Elegante -->
     <footer>
         <div class="container">
@@ -1005,18 +1039,19 @@
                 
                 <div class="footer-col">
                     <h3>Navegação</h3>
-                    <a href="#">Home</a>
-                    <a href="#">Sobre Nós</a>
-                    <a href="#">Áreas de Atuação</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Contato</a>
+                    <a href="index.html">Home</a>
+                    <a href="sobre.html">Sobre Nós</a>
+                    <a href="areas.html">Áreas de Atuação</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contato.html">Contato</a>
                 </div>
                 
                 <div class="footer-col">
                     <h3>Contato</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo/SP</p>
-                    <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
-                    <p><i class="fas fa-envelope"></i> contato@marianaferrolho.com.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R. Cícero Varela, n. 136 - Centro, João Câmara/RN</p>
+                    <p><i class="fas fa-phone"></i> (84) 99474-4224</p>
+                    <p><i class="fas fa-envelope"></i> advogadamarianaferrolho@gmail.com</p>
+                    <p><i class="fas fa-envelope"></i> lucasoliveira1.adv@gmail.com</p>
                 </div>
                 
                 <div class="footer-col">

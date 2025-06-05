@@ -606,18 +606,51 @@
                 margin-right: 0;
             }
         }
+        .header-logo-left {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            z-index: 1200;
+        }
+        .header-logo-left img {
+            height: 130px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+        /* Ajuste para responsividade */
+        @media (max-width: 768px) {
+            .header-logo-left {
+                height: 80px;
+                left: 15px;
+            }
+            .header-logo-left img {
+                height: 80px;
+            }
+        }
+        .container.header-container {
+            position: relative;
+        }
+        /* Remova a logo do canto direito se não for mais usar */
+        .header-logo-right {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <!-- Cabeçalho Responsivo -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <h1>MARIANA FERROLHO</h1>
-                <span>ADVOCACIA</span>
+            <!-- Logo no canto superior esquerdo -->
+            <div class="header-logo-left">
+                <img src="imag logos/LOGO_sem-fundo.png" alt="Logo Escritório" />
             </div>
-            
-            <!-- Menu Desktop -->
+            <div class="logo">
+            </div>
             <nav class="desktop-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
