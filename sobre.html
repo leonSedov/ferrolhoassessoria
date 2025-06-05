@@ -209,7 +209,7 @@
         .history-image {
             flex: 1;
             min-height: 500px;
-            background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            background: url('Captura de tela 2025-06-05 134636.png') center/cover;
         }
         
         .history-content {
@@ -309,10 +309,16 @@
         }
         
         .member-image {
-            width: 100%;
-            height: 400px;
+            width: 220px;
+            height: 220px;
             object-fit: cover;
-            margin-bottom: 20px;
+            object-position: top center;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            background: #fff;
+            display: block;
+            border: 4px solid var(--dourado);
             transition: transform 0.5s;
         }
         
@@ -497,17 +503,51 @@
                 gap: 40px;
             }
         }
+        .header-logo-left {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            z-index: 1200;
+        }
+        .header-logo-left img {
+            height: 130px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+        /* Ajuste para responsividade */
+        @media (max-width: 768px) {
+            .header-logo-left {
+                height: 80px;
+                left: 15px;
+            }
+            .header-logo-left img {
+                height: 80px;
+            }
+        }
+        .container.header-container {
+            position: relative;
+        }
+        /* Remova a logo do canto direito se não for mais usar */
+        .header-logo-right {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho Minimalista -->
+    <!-- Cabeçalho Responsivo -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <h1>MARIANA FERROLHO</h1>
-                <span>ADVOCACIA</span>
+            <!-- Logo no canto superior esquerdo -->
+            <div class="header-logo-left">
+                <img src="imag logos/LOGO_sem-fundo.png" alt="Logo Escritório" />
             </div>
-            
+            <div class="logo">
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -526,7 +566,7 @@
     <section class="about-hero">
         <div class="container about-hero-content">
             <h1>Nossa História</h1>
-            <p>Excelência jurídica com abordagem personalizada e resultados consistentes desde 2010.</p>
+            <p>Excelência jurídica com abordagem personalizada e resultados consistentes desde 2022.</p>
         </div>
     </section>
     
@@ -538,8 +578,12 @@
                 <div class="section-title">
                     <h2>Mariana Ferrolho Advocacia</h2>
                 </div>
-                <p>Fundado em 2010 pela Dra. Mariana Ferrolho, nosso escritório nasceu da visão de oferecer um serviço jurídico diferenciado, onde cada cliente recebe atenção exclusiva e soluções personalizadas.</p>
-                <p>Com mais de uma década de atuação, construímos uma trajetória marcada por resultados expressivos e relacionamentos duradouros com nossos clientes. Acreditamos que o direito deve ser acessível, transparente e eficiente.</p>
+                <p>
+                    O Escritório foi fundado por Mariana Ferrolho em 2022, uma advogada com uma visão inovadora para a área jurídica, com mais de 10 anos de experiência e atualmente Secretária Geral da OAB Subseção Mato Grande. Sempre com o objetivo de fornecer serviços jurídicos com qualidade e eficiência para os clientes.
+                </p>
+                <p>
+                    Em 2025, o escritório formou sociedade com o advogado Lucas Oliveira, assessor jurídico no Município de Ceará-Mirim, Professor Universitário e membro da Comissão de Família e Sucessões da OAB/RN, ampliando sua atuação e consolidando ainda mais o compromisso com a excelência no atendimento e resultado.
+                </p>
                 <p>Nossa equipe é composta por profissionais altamente qualificados, com formação nas melhores instituições de ensino e experiência em casos complexos. Combinamos conhecimento técnico com uma abordagem humana e estratégica.</p>
                 <p>Atuamos com ética, transparência e comprometimento, valores que nos guiam em cada caso que assumimos. Nosso objetivo é não apenas resolver problemas jurídicos, mas construir parcerias de longo prazo com nossos clientes.</p>
             </div>
@@ -611,39 +655,47 @@
             <div class="section-title">
                 <h2>Nossa Equipe</h2>
             </div>
-            
             <div class="team-grid">
+                <!-- Sócios -->
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="Mariana Ferrolho" class="member-image">
+                    <img src="imag equipe/socia mariana.png" alt="Mariana Ferrolho" class="member-image">
                     <h3>Mariana Ferrolho</h3>
                     <p>Sócia Fundadora</p>
                     <div class="member-social">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="far fa-envelope"></i></a>
+                        <a href="mailto:advogadamarianaferrolho@gmail.com"><i class="far fa-envelope"></i></a>
                     </div>
                 </div>
-                
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Rafael Mendes" class="member-image">
-                    <h3>Rafael Mendes</h3>
-                    <p>Sócio - Direito Empresarial</p>
+                    <img src="imag equipe/socio lucas.png" alt="Lucas Oliveira" class="member-image">
+                    <h3>Lucas Oliveira</h3>
+                    <p>Sócio</p>
                     <div class="member-social">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="far fa-envelope"></i></a>
+                        <a href="mailto:lucasoliveira1.adv@gmail.com"><i class="far fa-envelope"></i></a>
                     </div>
                 </div>
-                
+            </div>
+            <div class="section-title" style="margin-top:60px;">
+                <h2>Estagiários</h2>
+            </div>
+            <div class="team-grid">
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Carolina Lopes" class="member-image">
-                    <h3>Carolina Lopes</h3>
-                    <p>Sócia - Direito de Família</p>
-                    <div class="member-social">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="far fa-envelope"></i></a>
-                    </div>
+                    <img src="imag equipe/estagiaria1 Danubia Souza.png" alt="Danubia Souza" class="member-image">
+                    <h3>Danubia Souza</h3>
+                    <p>Estagiária</p>
+                </div>
+                <div class="team-member">
+                    <img src="imag equipe/estagiaria2 Maria Clara.png" alt="Maria Clara" class="member-image">
+                    <h3>Maria Clara</h3>
+                    <p>Estagiária</p>
+                </div>
+                <div class="team-member">
+                    <img src="imag equipe/estagiaria3 Letícia Monteiro.png" alt="Letícia Monteiro" class="member-image">
+                    <h3>Letícia Monteiro</h3>
+                    <p>Estagiária</p>
                 </div>
             </div>
         </div>
@@ -674,9 +726,10 @@
                 
                 <div class="footer-col">
                     <h3>Contato</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo/SP</p>
-                    <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
-                    <p><i class="fas fa-envelope"></i> contato@marianaferrolho.com.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R. Cícero Varela, n. 136 - Centro, João Câmara/RN</p>
+                    <p><i class="fas fa-phone"></i> (84) 99474-4224</p>
+                    <p><i class="fas fa-envelope"></i> advogadamarianaferrolho@gmail.com</p>
+                    <p><i class="fas fa-envelope"></i> lucasoliveira1.adv@gmail.com</p>
                 </div>
                 
                 <div class="footer-col">

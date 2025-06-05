@@ -41,15 +41,16 @@
             width: 90%;
             max-width: 1400px;
             margin: 0 auto;
+            padding: 0 20px;
         }
         
-        /* Cabeçalho Minimalista */
+        /* Cabeçalho Responsivo */
         header {
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 25px 0;
+            padding: 20px 0;
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -65,7 +66,7 @@
         .logo {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* Alinhado à esquerda */
         }
         
         .logo h1 {
@@ -84,17 +85,22 @@
             font-family: 'Montserrat', sans-serif;
         }
         
-        nav ul {
+        /* Menu Desktop */
+        .desktop-nav {
+            display: flex;
+        }
+        
+        .desktop-nav ul {
             display: flex;
             list-style: none;
         }
         
-        nav ul li {
+        .desktop-nav ul li {
             margin-left: 40px;
             position: relative;
         }
         
-        nav ul li a {
+        .desktop-nav ul li a {
             text-decoration: none;
             color: var(--preto);
             font-weight: 400;
@@ -105,11 +111,11 @@
             padding: 5px 0;
         }
         
-        nav ul li a:hover {
+        .desktop-nav ul li a:hover {
             color: var(--dourado);
         }
         
-        nav ul li a::after {
+        .desktop-nav ul li a::after {
             content: '';
             position: absolute;
             width: 0;
@@ -120,7 +126,7 @@
             transition: width 0.3s;
         }
         
-        nav ul li a:hover::after {
+        .desktop-nav ul li a:hover::after {
             width: 100%;
         }
         
@@ -160,6 +166,80 @@
             left: 0;
         }
         
+        /* Menu Mobile */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--preto);
+            cursor: pointer;
+            z-index: 1100;
+        }
+        
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: var(--branco);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1050;
+            padding: 100px 30px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-nav.active {
+            right: 0;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 25px;
+        }
+        
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--preto);
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .mobile-nav ul li a:hover {
+            color: var(--dourado);
+        }
+        
+        .mobile-nav .contact-btn {
+            margin-top: 30px;
+            align-self: center;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
         /* Hero Section Luxuosa */
         .hero {
             height: 100vh;
@@ -169,6 +249,7 @@
             position: relative;
             overflow: hidden;
             background-color: var(--cinza-claro);
+            margin-top: 80px;
         }
         
         .hero-content {
@@ -440,6 +521,14 @@
         }
         
         @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .hero {
                 min-height: 700px;
             }
@@ -460,15 +549,15 @@
         
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
+                padding: 15px 0;
             }
             
-            .logo {
-                margin-bottom: 20px;
+            .logo h1 {
+                font-size: 24px;
             }
             
-            nav ul li {
-                margin-left: 20px;
+            .logo span {
+                font-size: 12px;
             }
             
             .hero {
@@ -499,15 +588,6 @@
         }
         
         @media (max-width: 576px) {
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 10px 15px;
-            }
-            
             .hero h2 {
                 font-size: 36px;
             }
@@ -521,18 +601,55 @@
                 gap: 40px;
             }
         }
+        
+        .header-logo-left {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            z-index: 1200;
+        }
+        .header-logo-left img {
+            height: 130px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+        /* Ajuste para responsividade */
+        @media (max-width: 768px) {
+            .header-logo-left {
+                height: 80px;
+                left: 15px;
+            }
+            .header-logo-left img {
+                height: 80px;
+            }
+        }
+        .container.header-container {
+            position: relative;
+        }
+        /* Remova a logo do canto direito se não for mais usar */
+        .header-logo-right {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho Minimalista -->
+    <!-- Cabeçalho Responsivo -->
     <header>
         <div class="container header-container">
+            <!-- Logo no canto superior esquerdo -->
+            <div class="header-logo-left">
+                <img src="imag logos/LOGO_sem-fundo.png" alt="Logo Escritório" />
+            </div>
             <div class="logo">
-                <h1>MARIANA FERROLHO</h1>
-                <span>ADVOCACIA</span>
             </div>
             
-            <nav>
+            <!-- Menu Desktop -->
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="sobre.html">Sobre Nós</a></li>
@@ -543,7 +660,25 @@
             </nav>
             
             <button class="contact-btn">Contato</button>
+            
+            <!-- Botão Hamburguer Mobile -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+        
+        <!-- Menu Mobile -->
+        <div class="overlay" id="overlay"></div>
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="areas.html">Áreas de Atuação</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contato.html">Contatos</a></li>
+            </ul>
+            <button class="contact-btn">Contato</button>
+        </nav>
     </header>
     
     <!-- Hero Section Luxuosa -->
@@ -552,7 +687,7 @@
             <div class="hero-content">
                 <h2>Excelência Jurídica <span>Personalizada</span></h2>
                 <p>Advocacia especializada com abordagem estratégica e atendimento exclusivo para cada cliente.</p>
-                <a href="#" class="hero-btn">Agendar Consultoria</a>
+                <a href="wa.me/message/2MJWTZRIRSQYG1" class="hero-btn">Agendar Consultoria</a>
             </div>
             <div class="hero-image"></div>
         </div>
@@ -644,18 +779,19 @@
                 
                 <div class="footer-col">
                     <h3>Navegação</h3>
-                    <a href="#">Home</a>
-                    <a href="#">Sobre Nós</a>
-                    <a href="#">Áreas de Atuação</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Contato</a>
+                    <a href="index.html">Home</a>
+                    <a href="sobre.html">Sobre Nós</a>
+                    <a href="areas.html">Áreas de Atuação</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contato.html">Contato</a>
                 </div>
                 
                 <div class="footer-col">
                     <h3>Contato</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo/SP</p>
-                    <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
-                    <p><i class="fas fa-envelope"></i> contato@marianaferrolho.com.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R. Cícero Varela, n. 136 - Centro, João Câmara/RN</p>
+                    <p><i class="fas fa-phone"></i> (84) 99474-4224</p>
+                    <p><i class="fas fa-envelope"></i> advogadamarianaferrolho@gmail.com</p>
+                    <p><i class="fas fa-envelope"></i> lucasoliveira1.adv@gmail.com</p>
                 </div>
                 
                 <div class="footer-col">
@@ -671,7 +807,6 @@
             </div>
         </div>
     </footer>
-    
     
     <script>
         // Menu Hamburguer
@@ -724,7 +859,7 @@
         
         // Animação suave ao rolar
         const animateOnScroll = function() {
-            const elements = document.querySelectorAll('.area-card, .step-card, .section-title');
+            const elements = document.querySelectorAll('.feature-card, .area-card, .section-title');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
@@ -739,7 +874,7 @@
         
         // Inicializa elementos com opacidade 0 para animação
         window.onload = function() {
-            const elementsToAnimate = document.querySelectorAll('.area-card, .step-card, .section-title');
+            const elementsToAnimate = document.querySelectorAll('.feature-card, .area-card, .section-title');
             elementsToAnimate.forEach(element => {
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(30px)';
@@ -748,8 +883,8 @@
             
             // Mostra elementos com delay
             setTimeout(() => {
-                document.querySelector('.areas-hero-content').style.opacity = '1';
-                document.querySelector('.areas-hero-content').style.transform = 'translateY(0)';
+                document.querySelector('.hero-content').style.opacity = '1';
+                document.querySelector('.hero-content').style.transform = 'translateY(0)';
             }, 300);
             
             // Configura o observer para animação
