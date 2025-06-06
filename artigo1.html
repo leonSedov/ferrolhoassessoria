@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos | Mariana Ferrolho Advocacia</title>
+    <title>Planejamento Sucessório: como fazer um testamento | Mariana Ferrolho Advocacia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset e Variáveis de Cor */
@@ -39,17 +39,18 @@
         
         .container {
             width: 90%;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
         
-        /* Cabeçalho Responsivo com Hamburguer */
+        /* Cabeçalho Responsivo */
         header {
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 25px 0;
+            padding: 20px 0;
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -239,209 +240,166 @@
             visibility: visible;
         }
         
-        /* Hero Section Contatos */
-        .contact-hero {
-            height: 50vh;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
-            margin-top: 80px;
-            color: var(--branco);
+        /* Conteúdo do Artigo */
+        .article-hero {
+            padding: 180px 0 80px;
+            background-color: var(--cinza-claro);
             text-align: center;
         }
         
-        .contact-hero-content {
+        .article-hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--preto);
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            color: var(--cinza-escuro);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .article-meta i {
+            color: var(--dourado);
+        }
+        
+        .article-category {
+            display: inline-block;
+            background-color: var(--dourado);
+            color: var(--preto);
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        
+        .article-content {
+            padding: 80px 0;
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
         
-        .contact-hero h1 {
-            font-size: 64px;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-        
-        .contact-hero p {
-            font-size: 18px;
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* Seção de Contato */
-        .contact-section {
-            padding: 100px 0;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .section-title {
-            margin-bottom: 40px;
-        }
-        
-        .section-title h2 {
-            font-size: 42px;
+        .article-content h2 {
+            font-size: 32px;
+            margin: 40px 0 20px;
             color: var(--preto);
             position: relative;
-            display: inline-block;
         }
         
-        .section-title h2::after {
+        .article-content h2::after {
             content: '';
             position: absolute;
-            width: 80px;
+            width: 60px;
             height: 2px;
             background-color: var(--dourado);
-            bottom: -15px;
+            bottom: -10px;
             left: 0;
         }
         
-        .contact-details {
+        .article-content h3 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: var(--preto);
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--cinza-escuro);
+        }
+        
+        .article-content blockquote {
+            border-left: 3px solid var(--dourado);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--cinza-escuro);
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            color: var(--cinza-escuro);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin: 40px 0;
+            border-radius: 5px;
+        }
+        
+        .article-footer {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 40px;
+            margin-top: 60px;
+        }
+        
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 40px;
         }
         
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
+        .article-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s;
         }
         
-        .contact-icon {
-            width: 50px;
-            height: 50px;
+        .article-tag:hover {
             background-color: var(--dourado);
             color: var(--preto);
-            border-radius: 50%;
+        }
+        
+        .article-share {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        
-        .contact-text h3 {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-        
-        .contact-text p, .contact-text a {
-            color: var(--cinza-escuro);
-            font-weight: 300;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .contact-text a:hover {
-            color: var(--dourado);
-        }
-        
-        .social-media h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .social-links {
-            display: flex;
             gap: 15px;
         }
         
-        .social-links a {
-            color: var(--preto);
-            background-color: var(--cinza-claro);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .article-share h4 {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        
+        .article-share a {
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--cinza-claro);
+            color: var(--preto);
             transition: all 0.3s;
         }
         
-        .social-links a:hover {
+        .article-share a:hover {
             background-color: var(--dourado);
             transform: translateY(-3px);
-        }
-        
-        /* Formulário de Contato */
-        .contact-form {
-            background-color: var(--cinza-claro);
-            padding: 50px;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            font-family: 'Montserrat', sans-serif;
-            transition: all 0.3s;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--dourado);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background-color: var(--dourado);
-            color: var(--preto);
-            padding: 15px 40px;
-            border: none;
-            font-weight: 500;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: var(--preto);
-            color: var(--dourado);
-        }
-        
-        /* Mapa */
-        .map-section {
-            padding-bottom: 100px;
-        }
-        
-        .map-container {
-            height: 500px;
-            width: 100%;
-            overflow: hidden;
-        }
-        
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
         }
         
         /* Rodapé Elegante */
@@ -490,13 +448,13 @@
             color: var(--dourado);
         }
         
-        .footer-social-links {
+        .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
         
-        .footer-social-links a {
+        .social-links a {
             color: var(--branco);
             background-color: transparent;
             width: 40px;
@@ -509,7 +467,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .footer-social-links a:hover {
+        .social-links a:hover {
             background-color: var(--dourado);
             border-color: var(--dourado);
             transform: translateY(-3px);
@@ -526,8 +484,8 @@
         
         /* Responsividade */
         @media (max-width: 1200px) {
-            .contact-hero h1 {
-                font-size: 54px;
+            .article-content {
+                padding: 60px 0;
             }
         }
         
@@ -540,22 +498,15 @@
                 display: block;
             }
             
-            .contact-hero {
-                min-height: 350px;
+            .article-hero h1 {
+                font-size: 36px;
             }
             
-            .contact-hero h1 {
-                font-size: 48px;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .map-container {
-                height: 400px;
+            .article-content {
+                padding: 50px 0;
             }
         }
+        
         
         @media (max-width: 576px) {
             .hero h2 {
@@ -651,127 +602,81 @@
         </nav>
     </header>
     
-    <!-- Hero Section Contatos -->
-    <section class="contact-hero">
-        <div class="container contact-hero-content">
-            <h1>Entre em Contato</h1>
-            <p>Estamos prontos para ajudar com suas questões jurídicas. Agende uma consulta ou envie sua dúvida.</p>
-        </div>
-    </section>
-    
-    <!-- Seção de Contato -->
-    <section class="contact-section">
-        <div class="container contact-container">
-            <div class="contact-info">
-                <div class="section-title">
-                    <h2>Informações de Contato</h2>
-                </div>
-                
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Endereço</h3>
-                            <p>R. Cícero Varela, n. 136, Centro<br>João Câmara - RN</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Telefone</h3>
-                            <p><a href="tel:+5584994744224">(84) 99474-4224</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <p><a href="mailto:advogadamarianaferrolho@gmail.com">advogadamarianaferrolho@gmail.com</a></p>
-                            <p><a href="mailto:lucasoliveira1.adv@gmail.com">lucasoliveira1.adv@gmail.com</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="far fa-clock"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Horário de Atendimento</h3>
-                            <p>Segunda a Sexta: 9h às 18h</p>
-                            <p>Sábado: 9h às 12h</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="social-media">
-                    <h3>Redes Sociais</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-form">
-                <h3>Envie sua Mensagem</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Telefone</label>
-                        <input type="tel" id="phone" class="form-control">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Assunto</label>
-                        <select id="subject" class="form-control" required>
-                            <option value="" disabled selected>Selecione um assunto</option>
-                            <option value="consulta">Agendar Consulta</option>
-                            <option value="civil">Direito Civil</option>
-                            <option value="empresarial">Direito Empresarial</option>
-                            <option value="familia">Direito de Família</option>
-                            <option value="trabalhista">Direito Trabalhista</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" class="form-control" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Mapa -->
-    <section class="map-section">
+    <!-- Hero do Artigo -->
+    <section class="article-hero">
         <div class="container">
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps?q=R.+C%C3%ADcero+Varela,+136+-+Centro,+Jo%C3%A3o+C%C3%A2mara+-+RN&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <span class="article-category">Direito de Família</span>
+            <h1>Planejamento Sucessório: como fazer um testamento</h1>
+            <div class="article-meta">
+                <span><i class="far fa-calendar-alt"></i> 15 Janeiro 2024</span>
+                <span><i class="far fa-clock"></i> 8 min de leitura</span>
+                <span><i class="fas fa-user-edit"></i> Mariana Ferrolho</span>
             </div>
         </div>
     </section>
+    
+    <!-- Conteúdo do Artigo -->
+    <article class="article-content">
+        <div class="container">
+            <img src="" alt="Planejamento Sucessório" class="article-image">
+            
+            <h2>Introdução</h2>
+            <p>Por muitos anos, o testamento era visto como sinônimo de mau presságio, e pouco se ouvia falar sobre. Isso porque, naturalmente, para muitos, pensar e planejar no que acontecerá com o seu patrimônio posteriormente ao evento morte talvez não seja uma tarefa agradável. Isso sem falar que, no contexto brasileiro, não há muito afeito a planejamentos, as pessoas são movidas socialmente pelo popular "jeitinho" e deixando a resolução de seus problemas para a última hora.</p>
+            
+            <p>Contudo, a pandemia da COVID-19 trouxe uma tendência de reversão desse quadro, uma vez que passamos a ver que a morte é real, podendo acontecer a qualquer momento. Isso foi capaz de gerar um aumento considerável de testamentos no Brasil nos últimos anos.</p>
+            
+            <p>O testamento é uma forma de planejamento sucessório, isto é, um dos mecanismos (não o único) para o indivíduo definir como seus bens, direitos e até mesmo responsabilidades serão transferidos para os seus herdeiros após a sua morte. Sendo assim, é possível evitar muitas brigas entre os sucessores e processos de inventários judiciais quase que infinitos. Pois, como se sabe, herança ainda é sinônimo de desarranjos familiares no Brasil.</p>
+            
+            <h2>O que é um testamento?</h2>
+            <p>De acordo com Maluf e Maluf (2021, p. 274), o testamento é um negócio jurídico unilateral e gratuito, de natureza solene, essencialmente revogável, por meio do qual alguém dispõe dos bens para depois de sua morte "ou determina a própria vontade sobre a situação dos filhos e outros atos de última vontade".</p>
+            
+            <blockquote>
+                "Toda pessoa capaz pode dispor, por testamento, da totalidade dos seus bens, ou de parte deles, para depois de sua morte" (Art. 1.857 do Código Civil)
+            </blockquote>
+            
+            <p>O § 2º do referido artigo ainda traz que "são válidas as disposições testamentárias de caráter não patrimonial, ainda que o testador somente a elas se tenha limitado", isso quer dizer que é possível, por exemplo, pode um pai reconhecer um filho no testamento.</p>
+            
+            <p>Portanto, pelo texto legal, toda pessoa capaz tem liberdade de fazer um testamento, ou seja, dispor sobre a totalidade ou parte de seu patrimônio, para depois do falecimento. Importante destacar que essa liberdade não é absoluta, visto que, caso o testador tenha herdeiros necessários (pela atual redação do CC: descendentes, ascendentes e cônjuge – art. 1.845), só poderá dispor, por testamento, de metade de seu patrimônio. A outra metade é preservada para os herdeiros necessários, chamada de legítima ou parte indisponível, e tem como justificativa o princípio de preservação da família, segundo Godoy et al (2020).</p>
+            
+            <h2>Como fazer um testamento?</h2>
+            <p>O art. 1.862 do Código Civil prevê três tipos de testamento: público, cerrado e o particular. Portanto, só será válido o testamento que obedecer a uma dessas formas legais, com todos os requisitos exigidos para cada uma delas. Em todos os casos, a lei exige que a pessoa seja maior de 16 anos e que tenha pleno discernimento. Isso quer dizer que, no momento da elaboração do documento, o testador deve estar em plenas condições físicas e mentais, capazes de expressar sua vontade de forma consciente e clara.</p>
+            
+            <p>Aqui, iremos abordar o testamento público, que é o formato mais seguro. Ele Precisa ser feito no tabelionato de notas (um tipo específico de cartório), na presença do tabelião e de duas testemunhas. Para ser testemunha, a pessoa não pode estar entre as que vão receber qualquer parcela do patrimônio.</p>
+            
+            <p>Embora seja chamado de testamento público, seu conteúdo é mantido em sigilo. Apenas o tabelião e as testemunhas têm conhecimento do que foi registrado. Nos cartórios, fica apenas o registro de que a pessoa elaborou um testamento, mas o conteúdo só será divulgado aos herdeiros após a apresentação da certidão de óbito do testador.</p>
+            
+            <p>Esse sigilo tem como propósito evitar conflitos entre o testador e os herdeiros, bem como entre os próprios herdeiros. Além disso, garante que o testador tenha liberdade para mudar de ideia e alterar o documento, se desejar. Salientamos que é possível modificar ou revogar a qualquer tempo o testamento por meio de um outro (art. 1.858, CC).</p>
+            
+            <p>Os cartórios têm o dever de preservar o sigilo, mas a lei não proíbe que o testador compartilhe o conteúdo com quem quiser.</p>
+            
+            <p>Não é necessário estar acompanhado de advogado. No entanto, a falta de orientação jurídica pode trazer inconveniências. É importante para evitar nulidades no testamento.</p>
+            
+            <h2>Conclusão</h2>
+            <p>Como visto, o testamento é uma excelente alternativa para tentar evitar, ou amenizar, potenciais conflitos familiares e litígios judiciais em relação à herança, possibilitando que o testador organize a destinação de seu patrimônio e outros aspectos relevantes de sua vontade para o momento após sua morte. Não o único meio de planejamento sucessório, pois há outros, a exemplo da doação em vida, das holdings familiares e até mesmo na definição do regime de bens do casamento ou união estável, dentre outros.</p>
+            
+            <p>É de se frisar que o valor de um testamento público varia de estado para estado, uma vez que cada unidade da federação possui uma tabela de preços específica.</p>
+            
+            <p>Muito embora não seja obrigatório contratar um advogado para elaborar um testamento, somente profissionais especializados em direito das sucessões possuem o conhecimento necessário para identificar detalhes importantes e definir as estratégias mais adequadas, garantindo que o documento reflita fielmente a vontade do testador. Buscar a orientação de um advogado de confiança é a melhor forma de esclarecer dúvidas, escolher o tipo de testamento mais apropriado e assegurar a correta redação do documento.</p>
+            
+            <div class="article-footer">
+                <div class="article-tags">
+                    <a href="#" class="article-tag">Testamento</a>
+                    <a href="#" class="article-tag">Planejamento Sucessório</a>
+                    <a href="#" class="article-tag">Direito de Família</a>
+                    <a href="#" class="article-tag">Herança</a>
+                    <a href="#" class="article-tag">Direito Civil</a>
+                </div>
+                
+                <div class="article-share">
+                    <h4>Compartilhe:</h4>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </article>
     
     <!-- Rodapé Elegante -->
     <footer>
@@ -780,7 +685,7 @@
                 <div class="footer-col">
                     <h3>Mariana Ferrolho</h3>
                     <p>Excelência jurídica com atendimento personalizado e soluções estratégicas para seus problemas legais.</p>
-                    <div class="footer-social-links">
+                    <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
@@ -801,6 +706,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> R. Cícero Varela, n. 136 - Centro, João Câmara/RN</p>
                     <p><i class="fas fa-phone"></i> (84) 99474-4224</p>
                     <p><i class="fas fa-envelope"></i> advogadamarianaferrolho@gmail.com</p>
+                    <p><i class="fas fa-envelope"></i> lucasoliveira1.adv@gmail.com</p>
                 </div>
                 
                 <div class="footer-col">
@@ -865,51 +771,6 @@
                 header.style.boxShadow = 'none';
             }
         });
-        
-        // Formulário de contato
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulação de envio do formulário
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            contactForm.reset();
-        });
-        
-        // Animação suave ao rolar
-        const animateOnScroll = function() {
-            const elements = document.querySelectorAll('.contact-item, .contact-form, .section-title');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-        
-        // Inicializa elementos com opacidade 0 para animação
-        window.onload = function() {
-            const elementsToAnimate = document.querySelectorAll('.contact-item, .contact-form, .section-title');
-            elementsToAnimate.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                element.style.transition = 'all 0.6s ease-out';
-            });
-            
-            // Mostra elementos com delay
-            setTimeout(() => {
-                document.querySelector('.contact-hero-content').style.opacity = '1';
-                document.querySelector('.contact-hero-content').style.transform = 'translateY(0)';
-            }, 300);
-            
-            // Configura o observer para animação
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Executa uma vez ao carregar
-        };
     </script>
 </body>
 </html>
