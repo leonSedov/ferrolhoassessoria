@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Áreas de Atuação | Mariana Ferrolho Advocacia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonte Poppins importada corretamente -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Reset e Variáveis de Cor */
         :root {
@@ -14,34 +16,32 @@
             --cinza-claro: #F8F8F8;
             --cinza-escuro: #333333;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
         }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
-        
+
         body {
             background-color: var(--branco);
             color: var(--preto);
             line-height: 1.8;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
-        
+
         h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
+
+        .logo span {
+            font-family: 'Poppins', sans-serif;
         }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
         
         /* Cabeçalho Responsivo com Hamburguer */
         header {
@@ -630,7 +630,7 @@
                 </ul>
             </nav>
             
-            <button class="contact-btn">Contato</button>
+
             
             <!-- Botão Hamburguer Mobile -->
             <button class="mobile-menu-btn" id="mobileMenuBtn">
