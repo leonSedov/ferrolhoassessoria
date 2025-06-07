@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Mariana Ferrolho Advocacia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/jpg" href="imag logos/Logo escritório .PNG"/>
     <style>
         /* Reset e Variáveis de Cor */
         :root {
@@ -783,6 +784,21 @@
         .header-logo-right {
             display: none;
         }
+        
+        /* Estilo para quando não há resultados */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+            color: var(--cinza-escuro);
+        }
+        
+        /* Estilo para categoria ativa */
+        .categories-list .active-category {
+            color: var(--dourado);
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -807,8 +823,6 @@
                 </ul>
             </nav>
             
-
-            
             <!-- Botão Hamburguer Mobile -->
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -825,7 +839,6 @@
                 <li><a href="blog.html" class="active">Blog</a></li>
                 <li><a href="contato.html">Contatos</a></li>
             </ul>
-
         </nav>
     </header>
     
@@ -845,96 +858,17 @@
                     <h2>Últimos Artigos</h2>
                 </div>
                 
-                <div class="blog-grid">
-                    <article class="blog-card">
+                <div class="blog-grid" id="blogGrid">
+                    <!-- Artigo único - Planejamento Sucessório -->
+                    <article class="blog-card" data-category="Direito de Família" data-tags="Herança, Planejamento">
                         <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1587202372775-e229f1725a0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Reforma Trabalhista">
-                        </div>
-                        <div class="blog-info">
-                            <span class="blog-category">Direito Trabalhista</span>
-                            <h3>Mudanças na Reforma Trabalhista: O que você precisa saber</h3>
-                            <p>Análise detalhada das novas alterações na legislação trabalhista e seus impactos nas relações empregatícias.</p>
-                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
-                            <div class="blog-meta">
-                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 15 Maio 2023</span>
-                                <span class="blog-read"><i class="far fa-clock"></i> 5 min</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="LGPD">
-                        </div>
-                        <div class="blog-info">
-                            <span class="blog-category">Direito Digital</span>
-                            <h3>LGPD: Como se adequar às novas exigências de proteção de dados</h3>
-                            <p>Guia prático para empresas implementarem os requisitos da Lei Geral de Proteção de Dados em seus negócios.</p>
-                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
-                            <div class="blog-meta">
-                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 10 Maio 2023</span>
-                                <span class="blog-read"><i class="far fa-clock"></i> 8 min</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Divórcio">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Planejamento Sucessório">
                         </div>
                         <div class="blog-info">
                             <span class="blog-category">Direito de Família</span>
-                            <h3>Divórcio Consensual: Passo a passo para um processo tranquilo</h3>
-                            <p>Entenda os requisitos, documentos necessários e como tornar o processo de divórcio mais harmonioso para ambas as partes.</p>
-                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
-                            <div class="blog-meta">
-                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 5 Maio 2023</span>
-                                <span class="blog-read"><i class="far fa-clock"></i> 6 min</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Contratos">
-                        </div>
-                        <div class="blog-info">
-                            <span class="blog-category">Direito Civil</span>
-                            <h3>Cláusulas Essenciais em Contratos Imobiliários</h3>
-                            <p>Quais são as cláusulas que não podem faltar em um contrato de compra e venda de imóvel para proteger seus interesses.</p>
-                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
-                            <div class="blog-meta">
-                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 28 Abril 2023</span>
-                                <span class="blog-read"><i class="far fa-clock"></i> 7 min</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Startups">
-                        </div>
-                        <div class="blog-info">
-                            <span class="blog-category">Direito Empresarial</span>
-                            <h3>Aspectos Jurídicos para Startups: Do início ao scale-up</h3>
-                            <p>Os principais cuidados legais que empreendedores devem ter em cada fase do crescimento de suas startups.</p>
-                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
-                            <div class="blog-meta">
-                                <span class="blog-date"><i class="far fa-calendar-alt"></i> 20 Abril 2023</span>
-                                <span class="blog-read"><i class="far fa-clock"></i> 10 min</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Herança">
-                        </div>
-                        <div class="blog-info">
-                            <span class="blog-category">Direito de Família</span>
-                            <h3>Planejamento Sucessório: Como proteger seu patrimônio</h3>
+                            <h3>Planejamento Sucessório: Como fazer um testamento</h3>
                             <p>Estratégias jurídicas para organizar a sucessão patrimonial e evitar conflitos familiares.</p>
-                            <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                            <a href="artigo1.html" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
                             <div class="blog-meta">
                                 <span class="blog-date"><i class="far fa-calendar-alt"></i> 15 Abril 2023</span>
                                 <span class="blog-read"><i class="far fa-clock"></i> 9 min</span>
@@ -943,12 +877,10 @@
                     </article>
                 </div>
                 
-                <div class="pagination">
+                <!-- Paginação (oculta por enquanto, pois só temos um artigo) -->
+                <div class="pagination" style="display: none;">
                     <ul class="page-numbers">
                         <li><a href="#" class="active">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
                     </ul>
                 </div>
             </main>
@@ -956,21 +888,22 @@
             <aside class="blog-sidebar">
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Buscar</h3>
-                    <form class="search-form">
-                        <input type="text" placeholder="Pesquisar...">
+                    <form class="search-form" id="searchForm">
+                        <input type="text" id="searchInput" placeholder="Pesquisar...">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Categorias</h3>
-                    <ul class="categories-list">
-                        <li><a href="#">Direito Civil <span>12</span></a></li>
-                        <li><a href="#">Direito Empresarial <span>8</span></a></li>
-                        <li><a href="#">Direito de Família <span>15</span></a></li>
-                        <li><a href="#">Direito Trabalhista <span>7</span></a></li>
-                        <li><a href="#">Direito Digital <span>5</span></a></li>
-                        <li><a href="#">Direito Imobiliário <span>9</span></a></li>
+                    <ul class="categories-list" id="categoriesList">
+                        <li><a href="#" data-category="all">Todas <span>1</span></a></li>
+                        <li><a href="#" data-category="Direito Civil">Direito Civil <span>0</span></a></li>
+                        <li><a href="#" data-category="Direito Empresarial">Direito Empresarial <span>0</span></a></li>
+                        <li><a href="#" class="active-category" data-category="Direito de Família">Direito de Família <span>1</span></a></li>
+                        <li><a href="#" data-category="Direito Trabalhista">Direito Trabalhista <span>0</span></a></li>
+                        <li><a href="#" data-category="Direito Digital">Direito Digital <span>0</span></a></li>
+                        <li><a href="#" data-category="Direito Imobiliário">Direito Imobiliário <span>0</span></a></li>
                     </ul>
                 </div>
                 
@@ -979,29 +912,11 @@
                     <ul class="recent-posts">
                         <li class="recent-post">
                             <div class="recent-post-image">
-                                <img src="https://images.unsplash.com/photo-1587202372775-e229f1725a0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Post recente">
+                                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Post recente">
                             </div>
                             <div class="recent-post-content">
-                                <h4><a href="#">Mudanças na Reforma Trabalhista: O que você precisa saber</a></h4>
-                                <span>15 Maio 2023</span>
-                            </div>
-                        </li>
-                        <li class="recent-post">
-                            <div class="recent-post-image">
-                                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Post recente">
-                            </div>
-                            <div class="recent-post-content">
-                                <h4><a href="#">LGPD: Como se adequar às novas exigências</a></h4>
-                                <span>10 Maio 2023</span>
-                            </div>
-                        </li>
-                        <li class="recent-post">
-                            <div class="recent-post-image">
-                                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Post recente">
-                            </div>
-                            <div class="recent-post-content">
-                                <h4><a href="#">Divórcio Consensual: Passo a passo</a></h4>
-                                <span>5 Maio 2023</span>
+                                <h4><a href="#">Planejamento Sucessório: Como fazer um testamento</a></h4>
+                                <span>15 Abril 2023</span>
                             </div>
                         </li>
                     </ul>
@@ -1010,19 +925,14 @@
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Tags</h3>
                     <div class="tags-cloud">
-                        <a href="#">Contratos</a>
-                        <a href="#">LGPD</a>
-                        <a href="#">Divórcio</a>
-                        <a href="#">Startups</a>
-                        <a href="#">Herança</a>
-                        <a href="#">Trabalhista</a>
-                        <a href="#">Empresas</a>
-                        <a href="#">Imóveis</a>
+                        <a href="#" data-tag="Herança">Herança</a>
+                        <a href="#" data-tag="Planejamento">Planejamento</a>
                     </div>
                 </div>
             </aside>
         </div>
     </section>
+    
     <!-- Rodapé Elegante -->
     <footer>
         <div class="container">
@@ -1073,7 +983,6 @@
             </div>
         </div>
     </footer>
-    
     
     <script>
         // Menu Hamburguer
@@ -1158,6 +1067,112 @@
             window.addEventListener('scroll', animateOnScroll);
             animateOnScroll(); // Executa uma vez ao carregar
         };
+        
+        // Função para filtrar artigos por categoria
+        function filterByCategory(category) {
+            const articles = document.querySelectorAll('.blog-card');
+            let visibleCount = 0;
+            
+            articles.forEach(article => {
+                const articleCategory = article.getAttribute('data-category');
+                
+                if (category === 'all' || articleCategory === category) {
+                    article.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+            
+            // Mostra mensagem se não houver resultados
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                if (!noResults) {
+                    const blogGrid = document.getElementById('blogGrid');
+                    const noResultsDiv = document.createElement('div');
+                    noResultsDiv.id = 'noResults';
+                    noResultsDiv.className = 'no-results';
+                    noResultsDiv.textContent = 'Nenhum artigo encontrado nesta categoria.';
+                    blogGrid.appendChild(noResultsDiv);
+                }
+            } else if (noResults) {
+                noResults.remove();
+            }
+            
+            // Atualiza a classe ativa nas categorias
+            const categoryLinks = document.querySelectorAll('#categoriesList a');
+            categoryLinks.forEach(link => {
+                if (link.getAttribute('data-category') === category) {
+                    link.classList.add('active-category');
+                } else {
+                    link.classList.remove('active-category');
+                }
+            });
+        }
+        
+        // Função para buscar artigos
+        function searchArticles(searchTerm) {
+            const articles = document.querySelectorAll('.blog-card');
+            let visibleCount = 0;
+            
+            articles.forEach(article => {
+                const title = article.querySelector('h3').textContent.toLowerCase();
+                const content = article.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    article.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+            
+            // Mostra mensagem se não houver resultados
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                if (!noResults) {
+                    const blogGrid = document.getElementById('blogGrid');
+                    const noResultsDiv = document.createElement('div');
+                    noResultsDiv.id = 'noResults';
+                    noResultsDiv.className = 'no-results';
+                    noResultsDiv.textContent = 'Nenhum artigo encontrado com o termo buscado.';
+                    blogGrid.appendChild(noResultsDiv);
+                }
+            } else if (noResults) {
+                noResults.remove();
+            }
+        }
+        
+        // Event listeners para filtros e busca
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filtro por categoria
+            const categoryLinks = document.querySelectorAll('#categoriesList a');
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+                    filterByCategory(category);
+                });
+            });
+            
+            // Busca
+            const searchForm = document.getElementById('searchForm');
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                searchArticles(searchTerm);
+            });
+            
+            // Filtro por tags
+            const tagLinks = document.querySelectorAll('.tags-cloud a');
+            tagLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tag = this.getAttribute('data-tag').toLowerCase();
+                    searchArticles(tag);
+                });
+            });
+        });
     </script>
 </body>
 </html>
