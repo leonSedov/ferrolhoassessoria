@@ -640,6 +640,47 @@
         .header-logo-right {
             display: none;
         }
+        /* ...código existente... */
+        .testimonials {
+            background: var(--cinza-claro);
+            padding: 80px 0;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            padding: 40px 30px 30px 30px;
+            text-align: center;
+            position: relative;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .testimonial-stars {
+            margin-bottom: 18px;
+        }
+        .testimonial-stars i {
+            font-size: 20px;
+            margin-right: 2px;
+        }
+        .testimonial-text {
+            font-size: 18px;
+            color: var(--cinza-escuro);
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dourado);
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -760,6 +801,61 @@
                         <h3>Direito de Família</h3>
                         <p>Divórcios, inventários, guarda de menores e planejamento sucessório.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- O que dizem nossos clientes -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O que dizem nossos clientes</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        Equipe qualificada, demanda em
+diversas áreas jurídicas, e prioridade
+na comunicação com os clientes.
+
+                    </p>
+                    <span class="testimonial-author">— Beatriz Morais </span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        Profissionais irretocáveis,
+recomendo demais!
+                    </p>
+                    <span class="testimonial-author">— Augusto César </span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                        <i class="fas fa-star" style="color: #FFD700;"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        Escritório de excelência.
+Atendimento humano e empático!
+                    </p>
+                    <span class="testimonial-author">— Kaline Rodrigues</span>
                 </div>
             </div>
         </div>
