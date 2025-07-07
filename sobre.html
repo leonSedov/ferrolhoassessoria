@@ -571,6 +571,25 @@
             color: var(--dourado);
             font-weight: 500;
         }
+        
+        @media (max-width: 992px) {
+    .desktop-nav {
+        display: none !important;
+    }
+    .mobile-menu-btn {
+        display: block !important;
+        position: relative;
+        z-index: 1201;
+    }
+}
+@media (min-width: 993px) {
+    .mobile-menu-btn {
+        display: none !important;
+    }
+    .mobile-nav {
+        display: none !important;
+    }
+}
     </style>
 </head>
 <body>
