@@ -686,34 +686,17 @@
 <body>
     <!-- Cabeçalho Responsivo -->
     <header>
-        <div class="container header-container">
-            <!-- Logo no canto superior esquerdo -->
-            <div class="header-logo-left">
-                <img src="imag logos/LOGO_sem-fundo.png" alt="Logo Escritório" />
-            </div>
-            <div class="logo">
-            </div>
-            
-            <!-- Menu Desktop -->
-            <nav class="desktop-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="areas.html">Áreas de Atuação</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contato.html">Contatos</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Botão Hamburguer Mobile -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
+    <div class="container header-container">
+        <!-- Logo no canto superior esquerdo -->
+        <div class="header-logo-left">
+            <img src="imag logos/LOGO_sem-fundo.png" alt="Logo Escritório" />
+        </div>
+        <div class="logo">
+            <!-- Se quiser adicionar texto ou slogan, coloque aqui -->
         </div>
         
-        <!-- Menu Mobile -->
-        <div class="overlay" id="overlay"></div>
-        <nav class="mobile-nav" id="mobileNav">
+        <!-- Menu Desktop -->
+        <nav class="desktop-nav">
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="sobre.html">Sobre Nós</a></li>
@@ -722,7 +705,25 @@
                 <li><a href="contato.html">Contatos</a></li>
             </ul>
         </nav>
-    </header>
+        
+        <!-- Botão Hamburguer Mobile -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    
+    <!-- Menu Mobile -->
+    <div class="overlay" id="overlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="areas.html">Áreas de Atuação</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contato.html">Contatos</a></li>
+        </ul>
+    </nav>
+</header>
     
     <!-- Hero Section Luxuosa -->
     <section class="hero">
