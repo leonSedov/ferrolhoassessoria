@@ -625,7 +625,7 @@
             height: 60px;
             display: flex;
             align-items: center;
-            z-index: 1200;
+            z-index: 900; /* menor que o menu mobile */
         }
         .header-logo-left img {
             height: 130px;
@@ -636,11 +636,19 @@
         /* Ajuste para responsividade */
         @media (max-width: 768px) {
             .header-logo-left {
-                height: 80px;
-                left: 15px;
+                height: 60px;
+                left: 10px;
+                top: 20px;
+                transform: none;
+                z-index: 900;
             }
             .header-logo-left img {
-                height: 80px;
+                height: 50px;
+            }
+            /* Esconde a logo quando o menu mobile está aberto */
+            .mobile-nav.active ~ .header-logo-left,
+            .header-logo-left.mobile-hide {
+                display: none !important;
             }
         }
         .container.header-container {
@@ -823,27 +831,42 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
         const overlay = document.getElementById('overlay');
-        
+        const headerLogoLeft = document.querySelector('.header-logo-left');
+
+        function toggleLogoMobileHide(hide) {
+            if (window.innerWidth <= 992) {
+                if (hide) {
+                    headerLogoLeft.classList.add('mobile-hide');
+                } else {
+                    headerLogoLeft.classList.remove('mobile-hide');
+                }
+            } else {
+                headerLogoLeft.classList.remove('mobile-hide');
+            }
+        }
+
         mobileMenuBtn.addEventListener('click', function() {
             mobileNav.classList.toggle('active');
             overlay.classList.toggle('active');
             document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
-            
             // Altera o ícone do botão
             if (mobileNav.classList.contains('active')) {
                 mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                toggleLogoMobileHide(true);
             } else {
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                toggleLogoMobileHide(false);
             }
         });
-        
+
         overlay.addEventListener('click', function() {
             mobileNav.classList.remove('active');
             overlay.classList.remove('active');
             document.body.style.overflow = 'auto';
             mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            toggleLogoMobileHide(false);
         });
-        
+
         // Fecha o menu ao clicar em um link
         const navLinks = document.querySelectorAll('.mobile-nav a');
         navLinks.forEach(link => {
@@ -852,9 +875,10 @@
                 overlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                toggleLogoMobileHide(false);
             });
         });
-        
+
         // Efeito de scroll no header
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -864,6 +888,13 @@
             } else {
                 header.style.padding = '25px 0';
                 header.style.boxShadow = 'none';
+            }
+        });
+
+        // Garante que a logo volte ao normal ao redimensionar a tela
+        window.addEventListener('resize', function() {
+            if (!mobileNav.classList.contains('active')) {
+                toggleLogoMobileHide(false);
             }
         });
     </script>
