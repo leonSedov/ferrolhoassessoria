@@ -531,7 +531,7 @@
             height: 60px;
             display: flex;
             align-items: center;
-            z-index: 1200;
+            z-index: 900; /* menor que o menu mobile */
         }
         .header-logo-left img {
             height: 130px;
@@ -822,11 +822,18 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
         const overlay = document.getElementById('overlay');
+        const headerLogoLeft = document.querySelector('.header-logo-left');
         
         mobileMenuBtn.addEventListener('click', function() {
             mobileNav.classList.toggle('active');
             overlay.classList.toggle('active');
             document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+            // Esconde a logo quando o menu mobile está aberto
+            if (mobileNav.classList.contains('active')) {
+                headerLogoLeft.style.display = 'none';
+            } else {
+                headerLogoLeft.style.display = 'flex';
+            }
             
             // Altera o ícone do botão
             if (mobileNav.classList.contains('active')) {
@@ -840,6 +847,8 @@
             mobileNav.classList.remove('active');
             overlay.classList.remove('active');
             document.body.style.overflow = 'auto';
+            // Mostra a logo novamente ao fechar o menu mobile
+            headerLogoLeft.style.display = 'flex';
             mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         });
         
@@ -850,6 +859,8 @@
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
+                // Mostra a logo novamente ao fechar o menu mobile
+                headerLogoLeft.style.display = 'flex';
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
